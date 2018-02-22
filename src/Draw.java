@@ -5,6 +5,7 @@ public class Draw extends PApplet {
 	int populationSize = 50;
 	ProjectileVectors projectile;
 	Population population;
+	int lifeSpan = 200;//length of DNA genes
 
 	// PApplet extension
 	public static void main(String[] args) {
@@ -31,8 +32,6 @@ public class Draw extends PApplet {
 		background(255);
 
 		population.run(this);
-		projectile.update();
-		projectile.show(this);
 		
 		fill(0);
 		
