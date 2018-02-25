@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import processing.core.*;
 
@@ -24,7 +25,8 @@ public class ProjectileVectors {
 		//start at middle bottom of window
 		position = new PVector(parent.width/2, parent.height);
 		//no velocity
-		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));
+//		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));
+		velocity = new PVector();
 		//no acceleration
 		acceleration = new PVector();
 		
@@ -39,6 +41,16 @@ public class ProjectileVectors {
 	void update() {
 //		float location = position.dist(position, target);
 //		this.applyForce(dna.genes.listIterator().next());
+//		while(dna.genes.listIterator().hasNext()) {
+//			this.applyForce(dna.genes.iterator().next());
+//		}
+//		this.applyForce(PVector.random2D());//this works
+		Iterator<PVector> force = dna.genes.iterator();
+		while (force.hasNext()) {
+			this.applyForce(force.next());
+		}
+//		PVector vector = dna.genes.get(0);
+//		this.applyForce(vector);
 		velocity.add(acceleration);
 		position.add(velocity);
 		acceleration.mult(0);//clear acceleration at the end

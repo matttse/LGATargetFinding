@@ -6,6 +6,7 @@ public class DNA {
 	
 	DNA() {
 		genes = new ArrayList();
+		this.addVector(200);
 	}
 	
 	private void addVector(int lifeSpan) {
