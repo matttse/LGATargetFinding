@@ -5,6 +5,7 @@ public class Draw extends PApplet {
 	int populationSize = 50;
 	ProjectileVectors projectile;
 	Population population;
+	Target target;
 	int lifeSpan = 200;//length of DNA genes
 
 	// PApplet extension
@@ -25,6 +26,8 @@ public class Draw extends PApplet {
 			projectile = new ProjectileVectors(this);//instantiate each new projectile
 			population.addProjectiles(projectile);//add each projectile to the population
 		}
+		target = new Target(this);
+		
 	}
 
 	// draw canvas and run
@@ -32,6 +35,8 @@ public class Draw extends PApplet {
 		background(255);
 
 		population.run(this);
+		target.update();
+		target.show(this);
 		
 		fill(0);
 		

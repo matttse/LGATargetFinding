@@ -1,9 +1,9 @@
-import java.util.ArrayList;
 import java.util.Iterator;
 
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PVector;
 
-public class ProjectileVectors {
+public class Target {
 	//declare properties
 	//physics properties
 	PVector position;
@@ -21,13 +21,14 @@ public class ProjectileVectors {
 	DNA dna;
 	
 	//constructors for properties
-	public ProjectileVectors(PApplet parent) {
-		position = new PVector(parent.width/2, parent.height);//start at middle bottom of window
+	public Target(PApplet parent) {
+		position = new PVector(parent.width/2, 50);//start at center of window
 //		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));//hardcoded random vectors
 		velocity = new PVector();//no velocity
 		acceleration = new PVector();//no acceleration
-		dna = new DNA();//dna
+		dna = new DNA();//dna		
 	}
+	
 	//adding force
 	private void applyForce(PVector force) {
 		acceleration.add(force);
@@ -37,10 +38,10 @@ public class ProjectileVectors {
 //		float location = position.dist(position, target);
 
 //		this.applyForce(PVector.random2D());//this works
-		Iterator<PVector> force = dna.genes.iterator();
-		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
-			this.applyForce(force.next());
-		}
+//		Iterator<PVector> force = dna.genes.iterator();
+//		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
+//			this.applyForce(force.next());
+//		}
 
 		velocity.add(acceleration);
 		position.add(velocity);
@@ -53,9 +54,11 @@ public class ProjectileVectors {
 		parent.noStroke();
 		parent.translate(position.x, position.y);//rotated toward direction of movement
 		parent.rotate(velocity.heading());//towards the angle its moving
-		parent.rectMode(PApplet.CENTER);//center mode for projectile
-		parent.rect(0, 0, 50, 10);//drawing the projectile
+		parent.ellipseMode(PApplet.CENTER);//center mode for projectile
+		parent.ellipse(0, 0, 40, 30);//drawing the projectile
 		parent.popMatrix();
 	}
 
+	
+	
 }

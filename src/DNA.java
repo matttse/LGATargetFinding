@@ -11,7 +11,8 @@ public class DNA {
 	
 	private void addVector(int lifeSpan) {
 		for (int i = 0; i < lifeSpan; i++) {//iterate through whole length of gene
-			genes.add(PVector.random2D());//supply random force vectors to genes
+			genes.add(PVector.random2D().setMag((float) 0.01));//supply random force vectors to genes, reduce mag to 0.1
+			
 		}
 		
 	}
