@@ -22,8 +22,8 @@ public class ProjectileVectors {
 	
 	//constructors for properties
 	public ProjectileVectors(PApplet parent, int lifeSpan) {
-		position = new PVector(parent.random(-50,50), parent.random(-50,50));//random start pos
-//		position = new PVector(parent.width/2, parent.height);//start at middle bottom of window
+//		position = new PVector(parent.random(-50,50), parent.random(-50,50));//random start pos
+		position = new PVector(parent.width/2, parent.height);//start at middle bottom of window
 //		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));//hardcoded random vectors
 		velocity = new PVector();//no velocity
 		acceleration = new PVector();//no acceleration

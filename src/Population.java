@@ -62,9 +62,22 @@ public class Population {
 	
 	//selection function ie natural selection
 	public void natSelection() {
-		Random rdm = new Random();
+		
 		ArrayList<ProjectileVectors> babyVectors = new ArrayList<ProjectileVectors>();
-		int idxA = rdm.nextInt(matingPool.size());
+		for (int i = 0; i < projectiles.size(); i++) {
+			Random rdm = new Random();
+			int idxA = rdm.nextInt(matingPool.size());
+			ProjectileVectors parentOne = new ProjectileVectors(null, 0);
+			
+			matingPool.remove(idxA);
+			
+			int idxB = rdm.nextInt(matingPool.size());
+			ProjectileVectors parentTwo = new ProjectileVectors(null, 0);
+			matingPool.remove(idxB);
+			
+		}
+		
+
 //		ProjectileVectors projectileVectorOne = new ProjectileVectors(matingPool.get(idxA), 200);
 		
 	}

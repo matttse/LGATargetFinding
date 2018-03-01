@@ -39,10 +39,10 @@ public class Target {
 //		float location = position.dist(position, target);
 
 //		this.applyForce(PVector.random2D());//this works
-		Iterator<PVector> force = dna.genes.iterator();
-		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
-			this.applyForce(force.next());
-		}
+//		Iterator<PVector> force = dna.genes.iterator();
+//		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
+//			this.applyForce(force.next());
+//		}
 
 		velocity.add(acceleration);
 		position.add(velocity);
