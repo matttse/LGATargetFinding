@@ -21,13 +21,13 @@ public class Target {
 	DNA dna;
 	
 	//constructors for properties
-	public Target(PApplet parent) {
-		position = new PVector(parent.random(-50,50), parent.random(-50,50));//random start pos
-//		position = new PVector(parent.width/2, 50);//start at center of window
+	public Target(PApplet parent, int lifeSpan) {
+//		position = new PVector(parent.random(-50,50), parent.random(-50,50));//random start pos
+		position = new PVector(parent.width/2, 50);//start at center of window
 //		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));//hardcoded random vectors
 		velocity = new PVector();//no velocity
 		acceleration = new PVector();//no acceleration
-		dna = new DNA();//dna		
+		dna = new DNA(lifeSpan);//dna		
 	}
 	
 	//adding force

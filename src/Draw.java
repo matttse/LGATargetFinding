@@ -6,7 +6,8 @@ public class Draw extends PApplet {
 	ProjectileVectors projectile;
 	Population population;
 	Target target;
-	int lifeSpan = 200;//length of DNA genes
+	int vectorLifeSpan = 200;//length of DNA genes
+	int targetLifeSpan = 200;//length of DNA genes
 
 	// PApplet extension
 	public static void main(String[] args) {
@@ -19,14 +20,15 @@ public class Draw extends PApplet {
 	}
 
 	
-	public void setup() {		
-		population = new Population();//instantiate new population
+	public void setup() {
+		target = new Target(this, targetLifeSpan);
+		population = new Population(target.position, populationSize);//instantiate new population
 		//iterate through user setting of population size to add projectiles
 		for (int pv = 0; pv < populationSize; pv++) {
-			projectile = new ProjectileVectors(this);//instantiate each new projectile
+			projectile = new ProjectileVectors(this, vectorLifeSpan);//instantiate each new projectile
 			population.addProjectiles(projectile);//add each projectile to the population
 		}
-		target = new Target(this);
+		
 		
 	}
 

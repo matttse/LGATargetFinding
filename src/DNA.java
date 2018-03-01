@@ -4,9 +4,9 @@ import processing.core.*;
 public class DNA {
 	ArrayList<PVector> genes;//new vector forces sequencing
 	
-	DNA() {
+	DNA(int lifeSpan) {
 		genes = new ArrayList();
-		this.addVector(200);
+		this.addVector(lifeSpan);
 	}
 	
 	private void addVector(int lifeSpan) {
