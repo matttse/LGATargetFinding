@@ -22,7 +22,8 @@ public class Target {
 	
 	//constructors for properties
 	public Target(PApplet parent) {
-		position = new PVector(parent.width/2, 50);//start at center of window
+		position = new PVector(parent.random(-50,50), parent.random(-50,50));//random start pos
+//		position = new PVector(parent.width/2, 50);//start at center of window
 //		velocity = new PVector(parent.random(-1,1),parent.random(-1,1));//hardcoded random vectors
 		velocity = new PVector();//no velocity
 		acceleration = new PVector();//no acceleration
@@ -38,10 +39,10 @@ public class Target {
 //		float location = position.dist(position, target);
 
 //		this.applyForce(PVector.random2D());//this works
-//		Iterator<PVector> force = dna.genes.iterator();
-//		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
-//			this.applyForce(force.next());
-//		}
+		Iterator<PVector> force = dna.genes.iterator();
+		while (force.hasNext()) {//iterates as long as there is a force to be iterated through
+			this.applyForce(force.next());
+		}
 
 		velocity.add(acceleration);
 		position.add(velocity);
